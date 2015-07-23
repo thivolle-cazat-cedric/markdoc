@@ -17,5 +17,11 @@ DEBUG = False
 # clef de crypto pour les session
 SECRET_KEY = None
 
-# duree d une session
-PERMANENT_SESSION_LIFETIME = (3600 * 24) * 7
+DEFAULT_LANG = 'fr'
+
+EXTEN_MD = 'md'
+
+LANGUAGES = ['fr', 'en']
+# path start of doc marckodown from www-askcli dir
+# Finish by '/'
+PATH_DIR_DOC ='./doc/'
