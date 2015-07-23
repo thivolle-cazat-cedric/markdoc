@@ -22,5 +22,13 @@ def config_loader(config, environment):
     """
 
     config.from_object('app.config.default')
-    config.from_object('app.config.env.%s' % (environment))
-    config.from_envvar('ASKCLI_DOC_CONFIG', silent=True)
+    try:
+        config.from_object('app.config.env.%s' % (environment))
+    except Exception as e:
+        print(str("ERROR TO LOAD CONFIG ENVIRONEMENT : {0} [{1}]".format(environment, str(e))))
+        
+    
+    try:
+        config.from_envvar('ASKCLI_DOC_CONFIG', silent=True)
+    except Exception, e:
+        print(str("ERROR TO LOAD CONFIG ENVIRONEMENT : {0} [{1}]".format(environment, str(e))))

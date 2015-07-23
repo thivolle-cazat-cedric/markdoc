@@ -15,7 +15,7 @@ ENV_NAME = "Default prod"
 DEBUG = False
 
 # clef de crypto pour les session
-SECRET_KEY = '007'
+SECRET_KEY = None
 
 # duree d une session
 PERMANENT_SESSION_LIFETIME = (3600 * 24) * 7
