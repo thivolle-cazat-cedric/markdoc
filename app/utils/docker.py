@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, division, print_function, unicode_literals
 from os.path import basename, dirname, exists, isfile
 from mistune import Markdown, Renderer
+from re import sub
 
 
 class html_docker(object):
@@ -45,9 +48,11 @@ class html_docker(object):
         """
         path = dirname(path_file)
 
-        self._path = "{0}{2}".format(self.base_dir,self.language, path)
+        self._path = "{2}".format(self.base_dir,self.language, path)
 
         self._file_name = basename(path_file)
+        if len(self._file_name) < 1:
+            self._file_name='index'
 
         if '.' in self._file_name:
             explose = self._file_name.split('.')
@@ -63,7 +68,6 @@ class html_docker(object):
         else: 
             self._file_name += '.{0}.{1}'.format(self.language, self._EXTEN_MD)
 
-        print(self.language)
 
     def get_full_name(self):
         """
@@ -71,7 +75,7 @@ class html_docker(object):
         :return: le nom complet du fichier
         """
 
-        return "{0}/{1}".format(self._path, self._file_name)
+        return "{2}/{0}/{1}".format(self._path, self._file_name,self._path)
 
     def exist(self):
         """
@@ -104,3 +108,18 @@ class html_docker(object):
             
         else:
             raise IOError
+
+    def get_list_breadcrumb(self):
+
+        work = self.language + '/' + self._path + '/' +self._file_name.replace('.{0}'.format(self.language),'')
+        work = sub('\/+', '/', work)
+
+        if work and (work[0] == '.' or work[0] == '/') :
+            work = work[1:]
+
+        if work and (work[1] == '.' or work[1] == '/') :
+            work = work[1:]
+
+
+        return work.split('/')
+

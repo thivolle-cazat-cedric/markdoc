@@ -7,4 +7,5 @@ from __future__ import unicode_literals
 ###############################
 #
 DEBUG = True
+PROJECT_NAME = "py-askcli"
 

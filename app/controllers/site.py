@@ -19,6 +19,8 @@ def add_ref_formule(endpoint, values):
 @SITE.url_value_preprocessor
 def pull_lang_code(endpoint, values):
     g.lang = values.pop('lang')
+    current_app.jinja_env.globals['LANG'] = g.lang
+
 
 @SITE.before_request
 def check_language():
@@ -32,6 +34,7 @@ def check_language():
 @SITE.route('<path:path>', methods=['GET'])
 def docker_page(path='index'):
 
+
     doc_file = html_docker(
         base_dir=current_app.config['PATH_DIR_DOC'],
         language=g.lang,
@@ -39,7 +42,9 @@ def docker_page(path='index'):
         EXTEN_MD=current_app.config['EXTEN_MD']
     )
 
-    print(doc_file.get_full_name())
+    current_app.jinja_env.globals['CURENT_DOC_FILE'] = doc_file
+
+    return render_template('doc.html')
 
     if not doc_file.exist():
         abort(404)
