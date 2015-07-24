@@ -19,6 +19,31 @@ SECRET_KEY = None
 
 START_URI = '/'
 
+# translate language
+FULL_LANGUAGES = {
+	'fr' : {
+		'fr' : 'Français',
+		'en' : 'Anglais',
+		'es' : 'Espagnole',
+		'cn' : 'Chinoi',
+		# ...
+	},
+	'en' : {
+		'fr' : 'French',
+		'en' : 'English',
+		'es' : 'Spanish',
+		'cn' : 'chinese',
+		# ...
+	},
+	'es' : {
+		'fr' : 'Francés',
+		'en' : 'Inglés',
+		'es' : 'Español',
+		'cn' : 'Chino',
+		# ...
+	}
+}
+
 #
 ##############
 # DOC CONFIG #
