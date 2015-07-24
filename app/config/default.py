@@ -55,4 +55,5 @@ LANGUAGES = ['fr', 'en']
 
 # path start of doc marckodown from www-askcli dir
 # Finish by '/'
-PATH_DIR_DOC ='./doc/'
+# specipy the full path
+PATH_DIR_DOC ='/var/doc/'

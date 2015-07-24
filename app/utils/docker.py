@@ -1,11 +1,58 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function, unicode_literals
+from os import listdir
 from os.path import basename, dirname, exists, isfile
 from mistune import Markdown, Renderer
 from re import sub
 
+class FilesDoc(object):
+    """
+    simplement un objet ficiers 
+    """
 
-class html_docker(object):
+    basename = ""
+    file_name = "",
+    is_file = True,
+    is_current = True
+
+    def __init__(self, basename, file_name, is_file=True, is_current=False):
+        """
+        :param str basename: path of file
+        :param str file_name: name of file
+        :param bool is_file: if is file is True, if is directory is False
+        """
+        self.set_basename(basename)
+        self.file_name = file_name
+        self.is_file = is_file
+        self.is_current = is_current
+
+    def __str__(self):
+        return self.full_name()
+
+    def __repr__(self):
+        return "<FilesDoc : {0}>".format(self.full_name())
+
+    def set_basename(self, basename):
+        """
+        :param str basename: path of file
+
+        permet de seter la valeur basename
+        """
+
+        self.basename = sub('\/+', '/', basename)
+        if self.basename and self.basename[-1] == '/':
+            self.basename = self.basename[:-1]
+
+    def full_name(self):
+        """
+        :rtype: str
+        :return: the file path and filename in systeme
+        """
+
+        return "{0}/{1}".format(self.basename, self.file_name)
+
+
+class MarkDocker(object):
     """
     @todo document me 
     docstring for html_docker
@@ -18,7 +65,7 @@ class html_docker(object):
     language = ''
     
 
-    def __init__(self, base_dir, language, path_file='index.md', EXTEN_MD='md'):
+    def __init__(self, base_dir, language, path_file='index', EXTEN_MD='md'):
         """
         :param str base_dir: the dir root of markdown doc
         :param str path_file: path to file
@@ -30,6 +77,11 @@ class html_docker(object):
         self._EXTEN_MD = EXTEN_MD
         self.set_path_file(path_file)
 
+    def __repr__(self):
+        return "<html_docker : {0}>".format(self.get_full_name())
+
+    def __str__(self):
+        return "file : {0}>".format(self.get_full_name())
 
     def set_base_dir(self, base_dir):
         """
@@ -75,7 +127,7 @@ class html_docker(object):
         :return: le nom complet du fichier
         """
 
-        return "{2}/{0}/{1}".format(self._path, self._file_name,self._path)
+        return "{0}{1}/{2}".format(self.base_dir, self._path, self._file_name)
 
     def exist(self):
         """
@@ -110,6 +162,10 @@ class html_docker(object):
             raise IOError
 
     def get_list_breadcrumb(self):
+        """
+        :rtype: list
+        :return: le chemin du fichier sous forme de list
+        """
 
         work = self.language + '/' + self._path + '/' +self._file_name.replace('.{0}'.format(self.language),'')
         work = sub('\/+', '/', work)
@@ -120,6 +176,48 @@ class html_docker(object):
         if work and (work[1] == '.' or work[1] == '/') :
             work = work[1:]
 
-
         return work.split('/')
+
+    def get_brothers(self, char_ignor='_'):
+        """
+        :param str char_ignor: first charactere to ignore file
+
+        :rtype: list of FilesDoc
+        :return: les fichiers ce trouvant dans le meme dossier que le courant
+
+        ignore the .<filename>
+        """
+
+        path="{0}{1}".format(self.base_dir, self._path)
+        brothers = list()
+        files = listdir(path)
+        added = list()
+        curent = '.'.join(self._file_name.split('.')[:-2])
+        print(curent)
+
+        for f in files:
+
+            if f and f[0] != char_ignor and not(f[0] in char_ignor):
+
+                f_explose = f.split('.')
+                if len(f_explose) > 2:
+                    doc_file = '.'.join(f_explose[:-2])
+                else:
+                    doc_file = f
+
+                if not(doc_file in added):
+
+                    added.append(doc_file)
+                    brothers.append(
+                        FilesDoc(
+                            self._path, 
+                            doc_file, 
+                            isfile("{0}/{1}".format(path, f)),
+                            (doc_file == curent)
+                        )
+
+                    )
+
+        return brothers
+
 

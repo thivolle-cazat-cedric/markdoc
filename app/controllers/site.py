@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 from flask import render_template, Blueprint, current_app, request, abort, g, session
 from flask import Markup
 from mistune import markdown
 
-from app.utils.docker import html_docker
+from app.utils.docker import MarkDocker
 
 SITE = Blueprint('site', __name__)
 
@@ -35,19 +35,17 @@ def check_language():
 def docker_page(path='index'):
 
 
-    doc_file = html_docker(
+    doc = MarkDocker(
         base_dir=current_app.config['PATH_DIR_DOC'],
         language=g.lang,
         path_file=path,
         EXTEN_MD=current_app.config['EXTEN_MD']
     )
 
-    current_app.jinja_env.globals['CURENT_DOC_FILE'] = doc_file
+    current_app.jinja_env.globals['CURENT_DOC_FILE'] = doc
 
-    return render_template('doc.html')
 
-    if not doc_file.exist():
+    if not doc.exist():
         abort(404)
-
-    return doc_file.get_content()
+    return render_template('doc.html')
 

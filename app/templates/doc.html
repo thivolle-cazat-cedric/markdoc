@@ -1,5 +1,19 @@
 {% extends "layout.html" %}
 
+<!-- <li role="presentation" class="active"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">Profile</a></li>
+                     -->
+{% block nav %}
+	
+	{% for file in CURENT_DOC_FILE.get_brothers() %}
+		<a href="./{{file.file_name}}{%if not file.is_file %}/{% endif %}" class="list-group-item {% if file.is_current %}active{% endif %}">
+			<span class="fa fa-fw {%if not file.is_file %}fa-folder-o{% endif %}"></span>
+			{{file.file_name}}{%if file.is_file %}.md{% else %}/{% endif %}
+		</a>
+	{% endfor %} 
+{% endblock %}
+
+
 {% block body %}
-                    
+	{{CURENT_DOC_FILE.get_content().decode('utf-8')|safe}} 
 {% endblock %}

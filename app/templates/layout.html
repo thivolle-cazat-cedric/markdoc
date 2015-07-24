@@ -41,7 +41,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/">
-                        <img src="{{url_for('static', filename='img/icon/logo-50.png')}}" class="logo img-responsive" alt="{{PROJECT_NAME}}_img">
+                        <img src="{{url_for('static', filename='img/icon/favicon-50.png')}}" class="logo img-responsive" alt="{{PROJECT_NAME}}_img">
                         {{PROJECT_NAME}}
                     </a>
                 </div>
@@ -58,9 +58,17 @@
         <!-- Begin page content -->
         <div class="container-fluid">
             
-            <div class="row">
-                <div class="col-xs-12">
-                    {{CURENT_DOC_FILE.get_list_breadcrumb() | breadcrumb}}
+            <div id="markdoc" class="row">
+                <div id="markdoc-nav" class="col-xs-12 col-sm-3 col-md-3 col-lg-offset-1 col-lg-2">
+                    <div class="list-group">
+                        {% block nav %}{% endblock %}
+                    </div>
+                </div>
+
+                <div id="markdoc-body" class="col-xs-12 col-sm-9 col-md-8">
+                    <div>                        
+                        {{CURENT_DOC_FILE.get_list_breadcrumb() | breadcrumb}}
+                    </div>
 
                     {% block body %}{% endblock %}
                 </div>

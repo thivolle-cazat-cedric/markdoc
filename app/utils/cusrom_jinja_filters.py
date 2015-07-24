@@ -18,7 +18,7 @@ def render_breadcrumb(items):
         if i == len(items)-1:
             breadcrumb += '<li class="active">{0}</a></li>'.format(item)
         else:
-            breadcrumb += '<li><a href="{0}">{1}</a></li>'.format(uri,item)
+            breadcrumb += '<li><a href="{0}{1}/">{1}</a></li>'.format(uri,item)
         
         i += 1
     
