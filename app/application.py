@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 """Ce module contient la function d'initilisation de l'application"""
 
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, render_template
 from app.config.loader import config_loader
 from app.utils import cusrom_jinja_filters 
 
@@ -48,6 +48,7 @@ def create_app(env='prod', module="all"):
 
     @app.errorhandler(404)
     def err_too_many_requests(e):
-        return 'err 404'
+        
+        return render_template('err/404.html'), 404
 
     return app
