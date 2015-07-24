@@ -3,5 +3,5 @@
 
 env/*
 doc/*
-app/config/env/
+app/config/env/*
 app/lib/img/icon/*
