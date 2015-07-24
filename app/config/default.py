@@ -17,7 +17,7 @@ DEBUG = False
 # clef de crypto pour les session
 SECRET_KEY = None
 
-START_URI = '/'
+START_URI = ''
 
 # translate language
 FULL_LANGUAGES = {
@@ -43,6 +43,8 @@ FULL_LANGUAGES = {
 		# ...
 	}
 }
+
+NAV_ITEMS = ['exemples']
 
 #
 ##############

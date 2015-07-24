@@ -53,5 +53,5 @@ def docker_page(path='index'):
         else:
             abort(404)
 
-    return render_template('doc.html')
+    return render_template('doc.html', path=path)
 

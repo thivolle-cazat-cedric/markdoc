@@ -25,6 +25,7 @@ def create_app(env='prod', module="all"):
     app.jinja_env.filters['breadcrumb'] = cusrom_jinja_filters.render_breadcrumb
 
     for key in [
+        'NAV_ITEMS',
         'FULL_LANGUAGES',
         'START_URI',
         'PROJECT_NAME',
