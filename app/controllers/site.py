@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from flask import render_template, Blueprint, current_app, request, abort, g, session
 from flask import Markup
 from mistune import markdown
+from app.utils.errors import render_error, is_err_language
 
 from app.utils.docker import MarkDocker
 
@@ -46,6 +47,11 @@ def docker_page(path='index'):
 
 
     if not doc.exist():
-        abort(404)
+        if is_err_language(doc):
+            body = render_error(404, g.lang)
+            return render_template('err/index.html', body=body), 404
+        else:
+            abort(404)
+
     return render_template('doc.html')
 

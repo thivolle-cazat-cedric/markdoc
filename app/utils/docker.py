@@ -193,7 +193,6 @@ class MarkDocker(object):
         files = listdir(path)
         added = list()
         curent = '.'.join(self._file_name.split('.')[:-2])
-        print(curent)
 
         for f in files:
 
