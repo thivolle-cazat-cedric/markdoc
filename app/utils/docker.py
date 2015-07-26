@@ -215,7 +215,7 @@ class MarkDocker(object):
 
         for f in files:
 
-            if f and f[0] != char_ignor and not(f[0] in char_ignor):
+            if f and f[0] != char_ignor and f[0] != '.' and not(f[0] in char_ignor):
 
                 f_explose = f.split('.')
                 if len(f_explose) > 2:
