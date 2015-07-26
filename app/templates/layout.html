@@ -10,7 +10,7 @@
         {% set human_name = CURENT_DOC_FILE.get_human_name(with_index=True)%}
         {% set header_path = CURENT_DOC_FILE.get_header_path() %}
 
-        <meta name="description" content="">
+        <meta name="description" content="{{PROJECT_DESCRITION}}">
         <meta name="author" content="{{PROJECT_AUTHOR}}">
         <meta name="keywords" content="{{PROJECT_NAME}}, {{human_name_no_index}}">
         <link rel="icon" href="{{url_for('static', filename='img/icon/favicon.ico')}}">

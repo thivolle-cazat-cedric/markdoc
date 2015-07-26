@@ -56,6 +56,11 @@ NAV_ITEMS = []
 # name of project
 PROJECT_NAME = "Project name"
 
+# Descripyion of Project
+PROJECT_DESCRITION = """
+documentation of project [...]
+"""
+
 # version of project
 PROJECT_VERSION = "0.0.1-b"
 
