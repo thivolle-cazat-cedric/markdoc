@@ -21,7 +21,7 @@ Les fichiers sont nomé de la sorte :
 Les dossier eux sont nomé simplement sans extension <lanf>.md
 Les fichiers sont nomé de la sorte : 
 ```
-<nomdossier>
+<index>.<nomdossier>
   ---------- 
    |______________________ nom du dossier, qui sera également ajouter dans le menu latéral
 ```
