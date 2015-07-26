@@ -2,13 +2,19 @@
 
 {% block nav %}
     
+    <a href="./" class="list-group-item text-center{% if CURENT_DOC_FILE.get_human_name() == 'index'%} active{%endif%}">
+        {% if CURENT_DOC_FILE.get_header_path() %}
+            <span class="fa fa-chevron-down pull-left"></span> {{CURENT_DOC_FILE.get_header_path()}}
+        {% elif CURENT_DOC_FILE.get_header_path() == ''%}
+            <span class="fa fa-home"></span>
+        {% endif %}
+    </a>
     {% for file in CURENT_DOC_FILE.get_brothers() %}
-		{% if not(file.file_name in NAV_ITEMS) %}
-
-	        <a href="./{{file.file_name}}{%if not file.is_file %}/{% endif %}" class="list-group-item {% if file.is_current %}active{% endif %}">
-	            <span class="fa fa-fw {%if not file.is_file %}fa-folder-o{% endif %}"></span>
-	            {{file.file_name}}{%if file.is_file %}.md{% else %}/{% endif %}
-	        </a>
+        {% if  not (file.file_name in NAV_ITEMS and CURENT_DOC_FILE.get_header_path() == '' ) %}
+            <a href="./{{file.file_name}}{%if not file.is_file %}/{% endif %}" class="list-group-item {% if file.is_current %}active{% endif %}">
+                <span class="fa fa-fw {%if not file.is_file %}fa-folder-o{% endif %}"></span>
+                {{file.get_human_name()}}{%if file.is_file %}.md{% else %}/{% endif %}
+            </a>
         {% endif %}
     {% endfor %} 
 {% endblock %}

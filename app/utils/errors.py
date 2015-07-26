@@ -5,17 +5,17 @@ from flask import render_template
 from os import listdir
 from os.path import basename, dirname, exists
 
-def render_error(err_code, lang='en', escape=False, hard_wrap=True, use_xhtml=True, parse_block_html=True):
+def render_error(err_code, lang='en', path='', escape=False, hard_wrap=True, use_xhtml=True, parse_block_html=True):
     """
     :rtype: str
     :return: une page d'erreur markdown en html
     """
 
     try:
-        content = render_template('err/{0}/{1}.md'.format(err_code, lang))
+        content = render_template('err/{0}/{1}.md'.format(err_code, lang), path=path)
     except Exception, e:
         try:
-            content = render_template('err/{0}/{1}.md'.format(err_code, 'en'))
+            content = render_template('err/{0}/{1}.md'.format(err_code, 'en'), path=path)
         except Exception as e:
             raise e
 

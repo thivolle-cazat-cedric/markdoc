@@ -48,7 +48,7 @@ def docker_page(path='index'):
 
     if not doc.exist():
         if is_err_language(doc):
-            body = render_error(404, g.lang)
+            body = render_error(404, g.lang, path=path)
             return render_template('err/index.html', body=body), 404
         else:
             abort(404)

@@ -7,6 +7,6 @@
 
 <ul class="list-inline">
 	{% for lang in LANGUAGES %}
-		<li><a href="#" class="btn btn-link">{{FULL_LANGUAGES[LANG][lang]}}</a></li>
+		<li><a href="{{url_for('.docker_page', lang=lang, path=path)}}" class="btn btn-link">{{FULL_LANGUAGES[LANG][lang]}}</a></li>
 	{% endfor %}
 </ul>
