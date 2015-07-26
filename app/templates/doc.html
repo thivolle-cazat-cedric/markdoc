@@ -9,7 +9,7 @@
 		{% endif %}
 	</a>
 	{% for file in CURENT_DOC_FILE.get_brothers() %}
-		{% if not(file.file_name in NAV_ITEMS) %}
+		{% if  not (file.file_name in NAV_ITEMS and CURENT_DOC_FILE.get_header_path() == '' ) %}
 			<a href="./{{file.file_name}}{%if not file.is_file %}/{% endif %}" class="list-group-item {% if file.is_current %}active{% endif %}">
 				<span class="fa fa-fw {%if not file.is_file %}fa-folder-o{% endif %}"></span>
 				{{file.get_human_name()}}{%if file.is_file %}.md{% else %}/{% endif %}
