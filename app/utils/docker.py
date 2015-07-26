@@ -242,4 +242,12 @@ class MarkDocker(object):
 
         return self._path.split('/')[-1]
 
+    def get_nav_item_name(self):
+        """
+        :rtype: str
+        :return: le premier nom du path qui pourrais corespondre au nav
+        """
+
+        return self._path.split('/')[0]
+
 

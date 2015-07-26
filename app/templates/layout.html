@@ -48,7 +48,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         {% for item in NAV_ITEMS %}
-                            <li {% if CURENT_DOC_FILE and CURENT_DOC_FILE.get_header_path() == item %}class="active"{% endif %} ><a href="./{{item}}/">{{item}}</a></li>
+                            <li {% if CURENT_DOC_FILE and CURENT_DOC_FILE.get_nav_item_name() == item %}class="active"{% endif %} ><a href="./{{item}}/">{{item}}</a></li>
                         {% endfor %}
                     </ul>
                 </div><!--/.nav-collapse -->
