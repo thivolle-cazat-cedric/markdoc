@@ -214,7 +214,7 @@ class MarkDocker(object):
 
         path="{0}{1}".format(self.base_dir, self._path)
         brothers = list()
-        files = listdir(path)
+        files = sorted(listdir(path))
         added = list()
         curent = '.'.join(self._file_name.split('.')[:-2])
 
