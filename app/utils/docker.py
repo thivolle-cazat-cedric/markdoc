@@ -51,6 +51,9 @@ class FilesDoc(object):
 
         return "{0}/{1}".format(self.basename, self.file_name)
 
+    def get_human_name(self):
+        return self.file_name.replace('.', ' ', 1)
+
 
 class MarkDocker(object):
     """
@@ -129,6 +132,22 @@ class MarkDocker(object):
 
         return "{0}{1}/{2}".format(self.base_dir, self._path, self._file_name)
 
+    def get_human_name(self):
+        """
+        :rtype: str
+        :return: le nom du fichier sans extension ni information sur la langue
+        """
+
+        explose = self._file_name.split('.')
+
+        if len(explose)>2:
+            return '.'.join(explose[:-2])
+
+        else:
+            return self._file_name
+        
+
+
     def exist(self):
         """
         :rtype: bool
@@ -204,7 +223,7 @@ class MarkDocker(object):
                 else:
                     doc_file = f
 
-                if not(doc_file in added):
+                if not(doc_file in added) and f_explose[0] != 'index':
 
                     added.append(doc_file)
                     brothers.append(
@@ -218,5 +237,9 @@ class MarkDocker(object):
                     )
 
         return brothers
+
+    def get_header_path(self):
+
+        return self._path.split('/')[-1]
 
 
