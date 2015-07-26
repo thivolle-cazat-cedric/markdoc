@@ -7,4 +7,4 @@ Le module Flask est compatible apache2 et nginx. Je vous parlerais de la mise en
 Il est recommandé de ne pas utilisé de variables de d'environnement pour la mise en production du site. Modifier le fichier *app/config/env/prod.py*
 
 
-### [Apache config](./1.apache)
+### [Apache config](./1.Apache)
