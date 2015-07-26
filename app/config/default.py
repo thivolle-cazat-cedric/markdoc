@@ -15,7 +15,7 @@ ENV_NAME = "Default prod"
 DEBUG = False
 
 # clef de crypto pour les session
-SECRET_KEY = None
+SECRET_KEY = ''
 
 START_URI = ''
 
@@ -44,7 +44,7 @@ FULL_LANGUAGES = {
 	}
 }
 
-NAV_ITEMS = ['exemples']
+NAV_ITEMS = []
 
 #
 ##############
@@ -66,7 +66,7 @@ PROJECT_AUTHOR = "THIVOLLE-CAZAT Cédric"
 PROJECT_CONTACT = "mail@exemple.com"
 
 # REPOSITORIE OF PROJECT
-PROJECT_REPOSITORIE = "https://github.com/thivolle-cazat-cedric/py-askcli"
+PROJECT_REPOSITORIE = "https://github.com/<login>/<PROJECT_NAME>"
 
 # prefix in title header html 
 PREF_TITLE = "@doc "
