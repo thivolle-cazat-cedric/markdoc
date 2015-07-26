@@ -5,3 +5,5 @@ env/*
 doc/*
 app/config/env/*
 app/lib/img/icon/*
+
+markdoc.wsgi

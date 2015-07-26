@@ -2,7 +2,7 @@
 
 ---
 
-un outil qui permet de gerner un site de documentation via des fichier markdown
+un outil qui permet de gerner un site de documentation via des fichiers markdown
 
 ## Instatlation 
 
@@ -23,7 +23,7 @@ $ mkdir env
 $ virtualenv env/python2
 $ source env/python2/bin/activate
 $ pip install -r requirement.txt
-$ touch app/config/env/prod.py
-$ echo 'SECRET_KEY = "qwerty123"' > app/config/env/prod.py
+$ cp app/config/default.py app/config/env/prod.py
+$ ./markdoc.py runserver
 ```
 
