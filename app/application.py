@@ -41,7 +41,7 @@ def create_app(env='prod', module="all"):
     
     @app.route("/")
     def redirect_default():
-        return redirect('/{0}/'.format(app.config['DEFAULT_LANG']))
+        return redirect('/{0}/'.format(app.config['DEFAULT_LANG'])), 301
 
     app.register_blueprint(SITE, url_prefix='/<lang>/')
 
