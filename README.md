@@ -25,5 +25,7 @@ $ mkdir env
 $ virtualenv env/python2
 $ source env/python2/bin/activate
 $ pip install -r requirement.txt
+$ touch app/config/env/prod.py
+$ echo 'SECRET_KEY = "qwerty123"' > app/config/env/prod.py
 ```
 

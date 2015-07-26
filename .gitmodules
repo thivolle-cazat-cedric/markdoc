@@ -1,0 +1,6 @@
+[submodule "app/lib/vendor/bootstrap"]
+	path = app/lib/vendor/bootstrap
+	url = https://github.com/twbs/bootstrap.git
+[submodule "app/lib/vendor/Font-Awesome"]
+	path = app/lib/vendor/Font-Awesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
