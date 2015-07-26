@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from os import listdir
 from os.path import basename, dirname, exists, isfile
 from mistune import Markdown, Renderer
-from re import sub
+import re
 
 class FilesDoc(object):
     """
@@ -39,7 +39,7 @@ class FilesDoc(object):
         permet de seter la valeur basename
         """
 
-        self.basename = sub('\/+', '/', basename)
+        self.basename = re.sub('\/+', '/', basename)
         if self.basename and self.basename[-1] == '/':
             self.basename = self.basename[:-1]
 
@@ -132,19 +132,24 @@ class MarkDocker(object):
 
         return "{0}{1}/{2}".format(self.base_dir, self._path, self._file_name)
 
-    def get_human_name(self):
+    def get_human_name(self, with_index=False):
         """
+        :param bool with_index: si on montre l'index ou non
+
         :rtype: str
         :return: le nom du fichier sans extension ni information sur la langue
         """
 
+        name  = self._file_name
         explose = self._file_name.split('.')
 
         if len(explose)>2:
-            return '.'.join(explose[:-2])
+            name =  '.'.join(explose[:-2])
 
-        else:
-            return self._file_name
+        if with_index and re.match("^\d+\.", name):
+            name = re.sub("^\d+\.", '', name)
+
+        return name
         
 
 
@@ -187,7 +192,7 @@ class MarkDocker(object):
         """
 
         work = self.language + '/' + self._path + '/' +self._file_name.replace('.{0}'.format(self.language),'')
-        work = sub('\/+', '/', work)
+        work = re.sub('\/+', '/', work)
 
         if work and (work[0] == '.' or work[0] == '/') :
             work = work[1:]

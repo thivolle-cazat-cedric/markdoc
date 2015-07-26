@@ -5,12 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        {% set human_name_no_index = CURENT_DOC_FILE.get_human_name(with_index=True)%}
+        {% set human_name = CURENT_DOC_FILE.get_human_name(with_index=True)%}
+        {% set header_path = CURENT_DOC_FILE.get_header_path() %}
+
         <meta name="description" content="">
         <meta name="author" content="{{PROJECT_AUTHOR}}">
-        <meta name="keywords" content="{{PROJECT_NAME}}">
+        <meta name="keywords" content="{{PROJECT_NAME}}, {{human_name_no_index}}">
         <link rel="icon" href="{{url_for('static', filename='img/icon/favicon.ico')}}">
 
-        <title>{{PREF_TITLE}} {{PROJECT_NAME}}</title>
+        <title>{{PREF_TITLE}} {{PROJECT_NAME}} {% for dir in CURENT_DOC_FILE.get_list_breadcrumb()[1:-1] %} - {{dir}} {% endfor %}{% if human_name_no_index and human_name_no_index != 'index' %}- {{human_name_no_index}}{%endif%}</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{url_for('static', filename='vendor/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
