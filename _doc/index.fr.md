@@ -11,10 +11,11 @@ Rien de compliquer, MarkDoc est assez simple *on parlera configuration et dépen
 
 Les fichiers sont nomé de la sorte : 
 ```
-<nomfichier><lang>.md
-  ----------    ----
-   |              |_______ langue dans le quelle est ecris le fichié
-   |______________________ nom du fichier, qui sera également ajouter dans le menu latéral
+<index>.<nomfichier><lang>.md
+ -----   ----------  ----
+   |      |            |_________ langue dans le quelle est ecris le fichié
+   |      |______________________ nom du fichier, qui sera également ajouter dans le menu latéral
+   |_____________________________ Ordre du fichier dans la liste latéral
 ```
 
 Les dossier eux sont nomé simplement sans extension <lanf>.md
@@ -38,10 +39,14 @@ Les fichiers sont nomé de la sorte :
     | - installation.en.md
     | - configuration.fr.md
     | - configuration.en.md
-    | + exemple
+    | + deploy
     |   | - index.fr.md
-    |   | - config.fr.md
-    |   | - run.fr.md
+    |   | + apache/
+    |   |   | - index.fr.md
+    |   |   | - index.en.md
+    |   | + nginx/
+    |   |   |   | - index.fr.md
+    |   |   |   | - index.en.md
 	| - _ignore_file.md
 	| - .ignore_file2.md
 	[...]
