@@ -19,7 +19,7 @@ un outil qui permet de gerner un site de documentation via des fichier markdown
 
 ```
 $ cd {{your-target-dir}}
-$ ssh://git@baltig.thivolle-cazat.fr:2288/root/markdoc.git
+$ git clone --recursive https://github.com/thivolle-cazat-cedric/markdoc.git
 $ cd markdoc
 $ mkdir env
 $ virtualenv env/python2
