@@ -4,8 +4,6 @@
 
 un outil qui permet de gerner un site de documentation via des fichier markdown
 
-[github.com/thivolle-cazat-cedric/py-askcli](https://github.com/thivolle-cazat-cedric/py-askcli)
-
 ## Instatlation 
 
 #### requirement
