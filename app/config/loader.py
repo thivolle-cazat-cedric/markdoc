@@ -16,7 +16,7 @@ def config_loader(config, environment):
       * la configuration par defaut (ami.config.default)
       * la configuration en fonction de l'environment (prod, dev, test, ...)
       * la configuration de l'utilisateur depuis le fichier definit dans la
-        variable d'environement ASKCLI_DOC_CONFIG.
+        variable d'environement MARKCDOC_CONFIG.
 
     Il permet de surcharger la configuration.
     """
@@ -29,6 +29,6 @@ def config_loader(config, environment):
         
     
     try:
-        config.from_envvar('ASKCLI_DOC_CONFIG', silent=True)
+        config.from_envvar('MARKCDOC_CONFIG', silent=True)
     except Exception, e:
         print(str("ERROR TO LOAD CONFIG ENVIRONEMENT : {0} [{1}]".format(environment, str(e))))
