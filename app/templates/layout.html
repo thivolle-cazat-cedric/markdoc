@@ -13,7 +13,7 @@
         <meta name="description" content="{{PROJECT_DESCRITION}}">
         <meta name="author" content="{{PROJECT_AUTHOR}}">
         <meta name="keywords" content="{{PROJECT_NAME}}, {{human_name_no_index}}">
-        <link rel="icon" href="{{url_for('static', filename='img/icon/favicon.ico')}}">
+        <link rel="icon" href="{{ICON_IMG_LINK['ico']}}">
 
         <title>{{PREF_TITLE}} {{PROJECT_NAME}} {% for dir in CURENT_DOC_FILE.get_list_breadcrumb()[1:-1] %} - {{dir}} {% endfor %}{% if human_name_no_index and human_name_no_index != 'index' %}- {{human_name_no_index}}{%endif%}</title>
 
@@ -41,14 +41,16 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    {% if (NAV_ITEMS|length) > 0 %}
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    {% endif %}
                     <a class="navbar-brand" href="/">
-                        <img src="{{url_for('static', filename='img/icon/favicon-50.png')}}" class="logo img-responsive" alt="{{PROJECT_NAME}}_img">
+                        <img src="{{ICON_IMG_LINK['img50']}}" class="logo img-responsive" alt="{{PROJECT_NAME}}_img">
                         {{PROJECT_NAME}}
                     </a>
                 </div>
@@ -102,7 +104,7 @@
                         </ul>
                     </div>
                     <div class="col-xs-12 col-md-4 text-right">
-                        
+                        <small>write with <a href="http://markdoc.thivolle-cazat.fr" target="_BLANK">markdoc</a></small>
                     </div>
                 </div>
             </div>

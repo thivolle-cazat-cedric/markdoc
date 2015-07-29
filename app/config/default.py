@@ -89,3 +89,10 @@ LANGUAGES = ['fr', 'en']
 # Finish by '/'
 # specipy the full path
 PATH_DIR_DOC ='/var/doc/'
+
+ICON_IMG_LINK = {
+	'ico' : '/lib/img/icon/favicon.ico',
+	'img' : '/lib/img/icon/logo.png',
+	'img50' : '/lib/img/icon/logo-50.png',
+	'img100' : '/lib/img/icon/logo-100.png',
+}

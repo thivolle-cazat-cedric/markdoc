@@ -35,7 +35,8 @@ def create_app(env='prod', module="all"):
         'PROJECT_VERSION',
         'PROJECT_AUTHOR',
         'PROJECT_CONTACT',
-        'PROJECT_REPOSITORIE'
+        'PROJECT_REPOSITORIE',
+        'ICON_IMG_LINK'
     ]:
         app.jinja_env.globals[key] = app.config[key]
 
