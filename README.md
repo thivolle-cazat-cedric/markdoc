@@ -2,7 +2,7 @@
 
 ---
 
-un outil qui permet de gerner un site de documentation via des fichiers markdown. [Documentaion en ligne]](http://markdoc.thivolle-cazat.fr).
+un outil qui permet de gerner un site de documentation via des fichiers markdown. [Documentaion en ligne](http://markdoc.thivolle-cazat.fr).
 
 
 ## Instatlation 
