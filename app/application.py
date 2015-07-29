@@ -3,9 +3,10 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 """Ce module contient la function d'initilisation de l'application"""
 
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from app.config.loader import config_loader
 from app.utils import cusrom_jinja_filters 
+from app.utils.docker import MarkDocker
 
 
 def create_app(env='prod', module="all"):
@@ -50,7 +51,15 @@ def create_app(env='prod', module="all"):
 
     @app.errorhandler(404)
     def err_too_many_requests(e):
-        
-        return render_template('err/404.html'), 404
+        return render_template('err/404.html', 
+            CURENT_DOC_FILE=MarkDocker(
+                base_dir=app.config['PATH_DIR_DOC'],
+                language='en',
+                path_file=request.path,
+                EXTEN_MD=app.config['EXTEN_MD'],
+            ),
+            path=request.path,
+            page_err=True
+        ), 404
 
     return app

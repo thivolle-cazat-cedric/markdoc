@@ -85,25 +85,26 @@
         </div>
 
         <footer class="footer">
-            <div class="container">
+            <div class="container-fluid">
 
                 <div class="row text-muted">
-                    <div class="col-xs-12 col-md-4 text-lett">
-                        
+                    <div class="col-xs-12 col-md-4 text-left author-place">
+                        @{{PROJECT_AUTHOR}}
                     </div>
-                    <div class="col-xs-12 col-md-4 text-center author-place">
-                        @{{PROJECT_AUTHOR}} <br>
+                    <div class="col-xs-12 col-md-4 text-center project-place">
                         {{PROJECT_NAME}}&ndash; {{PROJECT_VERSION}} <br>
                         {% if PROJECT_REPOSITORIE%}
                             <a class="btn btn-lg btn-link" href="{{PROJECT_REPOSITORIE}}" data-toggle="tooltip" data-placement="top" title="{{START_URI}}{{PROJECT_REPOSITORIE.replace('https://', '')}}" target="_BLANK"><i class="fa fa-github fa-2x"></i></a>
                         {% endif %}
                         <ul class="list-inline text-center">
+                            {% if not page_err %}
                             {% for lang in LANGUAGES %}
                                 <li><a href="{{url_for('.docker_page', lang=lang, path=path)}}" class="btn btn-link {% if lang == LANG %}disabled" style="text-decoration: underline" {% endif %}"><!-- " -->{{lang}}</a></li>
                             {% endfor %}
+                            {% endif %}
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-md-4 text-right">
+                    <div class="col-xs-12 col-md-4 text-right markdoc-place">
                         <small>write with <a href="http://markdoc.thivolle-cazat.fr" target="_BLANK">markdoc</a></small>
                     </div>
                 </div>
