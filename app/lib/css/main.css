@@ -36,6 +36,17 @@ body > .container-fluid {
     
 }
 
+h1 em, 
+h2 em, 
+h3 em, 
+h4 em, 
+h5 em, 
+h6 em {
+    font-size: 70%;
+    line-height: 1;
+    color: #777;
+}
+
 
 .footer {
     position: absolute;
@@ -63,3 +74,12 @@ code {
     font-size: 80%;
 }
 
+strong > em {
+    font-weight: 500;
+    color: #000;
+    background: #CCC;
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border : solid 1px #666;
+}
