@@ -21,27 +21,27 @@ START_URI = ''
 
 # translate language
 FULL_LANGUAGES = {
-	'fr' : {
-		'fr' : 'Français',
-		'en' : 'Anglais',
-		'es' : 'Espagnole',
-		'cn' : 'Chinoi',
-		# ...
-	},
-	'en' : {
-		'fr' : 'French',
-		'en' : 'English',
-		'es' : 'Spanish',
-		'cn' : 'chinese',
-		# ...
-	},
-	'es' : {
-		'fr' : 'Francés',
-		'en' : 'Inglés',
-		'es' : 'Español',
-		'cn' : 'Chino',
-		# ...
-	}
+    'fr' : {
+        'fr' : 'Français',
+        'en' : 'Anglais',
+        'es' : 'Espagnole',
+        'cn' : 'Chinoi',
+        # ...
+    },
+    'en' : {
+        'fr' : 'French',
+        'en' : 'English',
+        'es' : 'Spanish',
+        'cn' : 'chinese',
+        # ...
+    },
+    'es' : {
+        'fr' : 'Francés',
+        'en' : 'Inglés',
+        'es' : 'Español',
+        'cn' : 'Chino',
+        # ...
+    }
 }
 
 NAV_ITEMS = []
@@ -91,8 +91,8 @@ LANGUAGES = ['fr', 'en']
 PATH_DIR_DOC ='/var/doc/'
 
 ICON_IMG_LINK = {
-	'ico' : '/lib/img/icon/favicon.ico',
-	'img' : '/lib/img/icon/logo.png',
-	'img50' : '/lib/img/icon/logo-50.png',
-	'img100' : '/lib/img/icon/logo-100.png',
+    'ico' : '/lib/img/icon/favicon.ico',
+    'img' : '/lib/img/icon/favicon.png',
+    'img50' : '/lib/img/icon/favicon-50.png',
+    'img100' : '/lib/img/icon/favicon-100.png',
 }
