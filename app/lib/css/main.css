@@ -9,6 +9,18 @@ body {
     margin-bottom: 60px;
 }
 
+p > em,
+li > em {
+    font-weight: 200;
+    font-size: 95%
+}
+
+p em code, 
+li em code {
+    background: #aaa;
+    color: #fafafa;
+    padding-bottom: 0;
+}
 .navbar .navbar-header>.navbar-brand{
     font-family:Menlo,Monaco,Consolas,"Courier New",monospace;
 }
@@ -34,6 +46,10 @@ body > .container-fluid {
 }
 #markdoc>#markdoc-nav>.list-group>.list-group-item>.pull-right.fa-2x {
     
+}
+
+h6 {
+    color: #777;
 }
 
 h1 em, 
